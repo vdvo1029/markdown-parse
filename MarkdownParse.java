@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String markdown) {
+        
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then take up to
         // the next )
@@ -19,15 +20,18 @@ public class MarkdownParse {
             }
 
             if(nextOpenBracket > 0) {
-                System.out.println(markdown.charAt(nextOpenBracket));
+               // System.out.println(markdown.charAt(nextOpenBracket));
                 if(markdown.charAt(nextOpenBracket - 1) == '!') {
                     currentIndex = nextOpenBracket + 1;
-                    System.out.println("Exclamation mark detected");
+                  //  System.out.println("Exclamation mark detected");
                     continue;
                 }
             }
 
             int markdownCheck = nextCloseBracket + 1;
+            if(markdownCheck>=markdown.length()){
+                break;
+            }
             if(markdown.charAt(markdownCheck) == ('(')) {
 
                 int openParen = markdown.indexOf("(", nextCloseBracket);
