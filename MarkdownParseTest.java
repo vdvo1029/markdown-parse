@@ -146,4 +146,8 @@ public class MarkdownParseTest{
 
         assertEquals(expectedOutput, links);
     }
+    @Test
+    public void labfail(){
+        assertEquals(1,2);
+    }
 }
